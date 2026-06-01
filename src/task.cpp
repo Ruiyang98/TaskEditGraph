@@ -1,4 +1,4 @@
-#include "task.h"
+﻿#include "task.h"
 
 Task::Task()
     : m_id(0)
@@ -75,11 +75,11 @@ QString Task::conditionText() const
 {
     switch (m_condition.type) {
     case TaskConditionType::AfterDuration:
-        return QString("执行%1秒后切换").arg(m_condition.durationSeconds);
+        return QString::fromLocal8Bit("执行%1秒后切换").arg(m_condition.durationSeconds);
     case TaskConditionType::Sequential:
-        return QString("顺序执行");
+        return QString::fromLocal8Bit("顺序执行");
     case TaskConditionType::AtTime:
-        return QString("指定时间%1开始").arg(m_condition.startTime);
+        return QString::fromLocal8Bit("指定时间%1开始").arg(m_condition.startTime);
     }
     return QString();
 }

@@ -1,4 +1,4 @@
-#include "taskconditiondialog.h"
+﻿#include "taskconditiondialog.h"
 #include <QComboBox>
 #include <QStackedWidget>
 #include <QSpinBox>
@@ -13,18 +13,18 @@ TaskConditionDialog::TaskConditionDialog(QWidget *parent)
     : QDialog(parent)
 {
     setupUi();
-    setWindowTitle("设置任务切换条件");
+    setWindowTitle(QString::fromLocal8Bit("设置任务切换条件"));
 }
 
 void TaskConditionDialog::setupUi()
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    QLabel *typeLabel = new QLabel("条件类型:", this);
+    QLabel *typeLabel = new QLabel(QString::fromLocal8Bit("条件类型:"), this);
     m_typeCombo = new QComboBox(this);
-    m_typeCombo->addItem("顺序执行", static_cast<int>(TaskConditionType::Sequential));
-    m_typeCombo->addItem("执行指定时间后切换", static_cast<int>(TaskConditionType::AfterDuration));
-    m_typeCombo->addItem("指定时间开始切换", static_cast<int>(TaskConditionType::AtTime));
+    m_typeCombo->addItem(QString::fromLocal8Bit("顺序执行"), static_cast<int>(TaskConditionType::Sequential));
+    m_typeCombo->addItem(QString::fromLocal8Bit("执行指定时间后切换"), static_cast<int>(TaskConditionType::AfterDuration));
+    m_typeCombo->addItem(QString::fromLocal8Bit("指定时间开始切换"), static_cast<int>(TaskConditionType::AtTime));
 
     QHBoxLayout *typeLayout = new QHBoxLayout();
     typeLayout->addWidget(typeLabel);
@@ -35,13 +35,13 @@ void TaskConditionDialog::setupUi()
 
     QWidget *sequentialPage = new QWidget(this);
     QVBoxLayout *sequentialLayout = new QVBoxLayout(sequentialPage);
-    sequentialLayout->addWidget(new QLabel("无额外参数", this));
+    sequentialLayout->addWidget(new QLabel(QString::fromLocal8Bit("无额外参数"), this));
     sequentialLayout->addStretch();
     m_paramStack->addWidget(sequentialPage);
 
     QWidget *durationPage = new QWidget(this);
     QHBoxLayout *durationLayout = new QHBoxLayout(durationPage);
-    durationLayout->addWidget(new QLabel("持续时间(秒):", this));
+    durationLayout->addWidget(new QLabel(QString::fromLocal8Bit("持续时间(秒):"), this));
     m_durationSpin = new QSpinBox(this);
     m_durationSpin->setRange(1, 99999);
     m_durationSpin->setValue(1);
@@ -64,8 +64,8 @@ void TaskConditionDialog::setupUi()
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addStretch();
-    m_okButton = new QPushButton("确定", this);
-    m_cancelButton = new QPushButton("取消", this);
+    m_okButton = new QPushButton(QString::fromLocal8Bit("确定"), this);
+    m_cancelButton = new QPushButton(QString::fromLocal8Bit("取消"), this);
     buttonLayout->addWidget(m_okButton);
     buttonLayout->addWidget(m_cancelButton);
     mainLayout->addLayout(buttonLayout);
