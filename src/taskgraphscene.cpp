@@ -4,7 +4,7 @@
 #include "tasknodeitem.h"
 #include "connectionitem.h"
 #include "taskconditiondialog.h"
-#include <QInputDialog>
+#include "taskedithelper.h"
 #include <QMessageBox>
 
 TaskGraphScene::TaskGraphScene(QObject *parent)
@@ -79,31 +79,12 @@ void TaskGraphScene::onConditionChanged(int index)
 
 void TaskGraphScene::onAddTask(int index)
 {
-    if (!m_model)
-        return;
-
-    bool ok;
-    QString name = QInputDialog::getText(nullptr, "添加任务", "任务名称:", QLineEdit::Normal, QString(), &ok);
-    if (ok && !name.isEmpty()) {
-        Task *task = new Task(0, name);
-        m_model->addTask(task, index);
-    }
+    TaskEditHelper::addTaskInteractive(m_model, nullptr, index);
 }
 
 void TaskGraphScene::onEditTask(int index)
 {
-    if (!m_model)
-        return;
-
-    Task *task = m_model->taskAt(index);
-    if (!task)
-        return;
-
-    bool ok;
-    QString name = QInputDialog::getText(nullptr, "修改任务", "任务名称:", QLineEdit::Normal, task->name(), &ok);
-    if (ok && !name.isEmpty()) {
-        m_model->updateTask(index, name);
-    }
+    TaskEditHelper::editTaskInteractive(m_model, index);
 }
 
 void TaskGraphScene::onDeleteTask(int index)

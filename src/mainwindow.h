@@ -14,6 +14,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 private:
+    void createDemoTasks();
+
     TaskGraphView *m_graphView = nullptr;
     TaskModel *m_taskModel = nullptr;
 };

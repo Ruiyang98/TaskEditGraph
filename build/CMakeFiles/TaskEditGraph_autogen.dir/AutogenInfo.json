@@ -73,6 +73,12 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/workspace/TaskEdit/src/addtaskdialog.h",
+			"MU",
+			"UVLADIE3JM/moc_addtaskdialog.cpp",
+			null
+		],
+		[
 			"D:/workspace/TaskEdit/src/connectionitem.h",
 			"MU",
 			"UVLADIE3JM/moc_connectionitem.cpp",
@@ -94,6 +100,12 @@
 			"D:/workspace/TaskEdit/src/taskconditiondialog.h",
 			"MU",
 			"UVLADIE3JM/moc_taskconditiondialog.cpp",
+			null
+		],
+		[
+			"D:/workspace/TaskEdit/src/taskedithelper.h",
+			"MU",
+			"UVLADIE3JM/moc_taskedithelper.cpp",
 			null
 		],
 		[
@@ -206,11 +218,13 @@
 	"SETTINGS_FILE_Release" : "D:/workspace/TaskEdit/build/CMakeFiles/TaskEditGraph_autogen.dir/AutogenUsed_Release.txt",
 	"SOURCES" : 
 	[
+		[ "D:/workspace/TaskEdit/src/addtaskdialog.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/connectionitem.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/main.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/mainwindow.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/task.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/taskconditiondialog.cpp", "MU", null ],
+		[ "D:/workspace/TaskEdit/src/taskedithelper.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/taskgraphscene.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/taskgraphview.cpp", "MU", null ],
 		[ "D:/workspace/TaskEdit/src/taskmodel.cpp", "MU", null ],

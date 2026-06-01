@@ -47,6 +47,19 @@ void TaskModel::updateTask(int index, const QString &name)
     emit taskUpdated(index);
 }
 
+void TaskModel::updateTask(int index, const QString &name, TaskStatus status, const TaskCondition &condition)
+{
+    if (index < 0 || index >= m_tasks.size())
+        return;
+
+    Task *task = m_tasks[index];
+    task->setName(name);
+    task->setStatus(status);
+    task->setCondition(condition);
+    emit taskUpdated(index);
+    emit conditionChanged(index);
+}
+
 void TaskModel::setTaskCondition(int index, const TaskCondition &condition)
 {
     if (index < 0 || index >= m_tasks.size())

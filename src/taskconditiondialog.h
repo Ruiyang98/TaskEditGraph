@@ -4,11 +4,9 @@
 #include <QDialog>
 #include "task.h"
 
-class QComboBox;
-class QStackedWidget;
-class QSpinBox;
-class QLineEdit;
-class QPushButton;
+namespace Ui {
+class TaskConditionDialog;
+}
 
 class TaskConditionDialog : public QDialog
 {
@@ -16,6 +14,7 @@ class TaskConditionDialog : public QDialog
 
 public:
     explicit TaskConditionDialog(QWidget *parent = nullptr);
+    ~TaskConditionDialog();
 
     void setCondition(const TaskCondition &condition);
     TaskCondition condition() const;
@@ -24,14 +23,7 @@ private slots:
     void onTypeChanged(int index);
 
 private:
-    void setupUi();
-
-    QComboBox *m_typeCombo;
-    QStackedWidget *m_paramStack;
-    QSpinBox *m_durationSpin;
-    QLineEdit *m_timeEdit;
-    QPushButton *m_okButton;
-    QPushButton *m_cancelButton;
+    Ui::TaskConditionDialog *ui;
 };
 
 #endif // TASKCONDITIONDIALOG_H

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TaskConditionDialog</class>
+ <widget class="QDialog" name="TaskConditionDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>350</width>
+    <height>180</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>设置任务切换条件</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="typeLayout">
+     <item>
+      <widget class="QLabel" name="typeLabel">
+       <property name="text">
+        <string>条件类型:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="typeCombo">
+       <item>
+        <property name="text">
+         <string>顺序执行</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>执行指定时间后切换</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>指定时间开始切换</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <spacer name="typeSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="paramStack">
+     <widget class="QWidget" name="sequentialPage">
+      <layout class="QVBoxLayout" name="sequentialLayout">
+       <item>
+        <widget class="QLabel" name="sequentialLabel">
+         <property name="text">
+          <string>无额外参数</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="sequentialSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="durationPage">
+      <layout class="QHBoxLayout" name="durationLayout">
+       <item>
+        <widget class="QLabel" name="durationLabel">
+         <property name="text">
+          <string>持续时间(秒):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="durationSpin">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>99999</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="durationSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="timePage">
+      <layout class="QHBoxLayout" name="timeLayout">
+       <item>
+        <widget class="QLabel" name="timeLabel">
+         <property name="text">
+          <string>开始时间:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="timeEdit">
+         <property name="placeholderText">
+          <string>HH:MM:SS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="timeSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok|QDialogButtonBox::Cancel</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>TaskConditionDialog</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>TaskConditionDialog</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>

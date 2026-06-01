@@ -10,7 +10,16 @@ MainWindow::MainWindow(QWidget *parent)
     resize(800, 600);
 
     m_taskModel = new TaskModel(this);
+    createDemoTasks();
 
+    m_graphView = new TaskGraphView(this);
+    m_graphView->setTaskModel(m_taskModel);
+
+    setCentralWidget(m_graphView);
+}
+
+void MainWindow::createDemoTasks()
+{
     Task *task1 = new Task(1, "任务1");
     Task *task2 = new Task(2, "任务2");
     Task *task3 = new Task(3, "任务3");
@@ -30,9 +39,4 @@ MainWindow::MainWindow(QWidget *parent)
     m_taskModel->addTask(task1);
     m_taskModel->addTask(task2);
     m_taskModel->addTask(task3);
-
-    m_graphView = new TaskGraphView(this);
-    m_graphView->setTaskModel(m_taskModel);
-
-    setCentralWidget(m_graphView);
 }
